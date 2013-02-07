@@ -20,7 +20,8 @@
         android:layout_above="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:ems="10" >
+        android:ems="10"
+        android:hint="@string/edittexthint" >
 
         <requestFocus />
     </EditText>
@@ -41,7 +42,7 @@
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        android:text="TextView" />
+        android:text="@string/result" />
 
     <TextView
         android:id="@+id/textView1"
