@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.cafeconpollo.linkedlist;
 
 public class LinkedList {
 	private Node list;

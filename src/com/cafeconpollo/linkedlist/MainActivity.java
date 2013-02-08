@@ -1,4 +1,4 @@
-package com.example.myfirstapp;
+package com.cafeconpollo.linkedlist;
 
 import android.os.Bundle;
 import android.app.Activity;
