@@ -29,5 +29,16 @@ public class LinkedList {
 			ptr = ptr.next;
 		}
 	}
+	
+	public boolean searchList(String val) {
+		Node ptr = list;
+		while (ptr != null){
+			if (val.equals((String)ptr.data)){
+				return true;
+			}
+			ptr = ptr.next;
+		}
+		return false;			
+	}
 
 }

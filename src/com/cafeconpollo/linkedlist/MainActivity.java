@@ -18,9 +18,10 @@ public class MainActivity extends Activity implements DoAction{
 		
 		final Button addButton = (Button)findViewById(R.id.button1);
 		final Button listButton = (Button)findViewById(R.id.button2);
+		final Button searchButton = (Button)findViewById(R.id.button3);
 		final EditText edttext = (EditText)findViewById(R.id.editText1);
 		final TextView txtview1 = (TextView)findViewById(R.id.textView1);
-		final TextView listtxt = (TextView)findViewById(R.id.textView2);
+		final TextView resulttxt = (TextView)findViewById(R.id.textView2);
 		
 		
 		final LinkedList list = new LinkedList(this);	
@@ -36,10 +37,24 @@ public class MainActivity extends Activity implements DoAction{
 		listButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {	
-				listtxt.setText("");
+				resulttxt.setText("");
 				list.traverseList();		
 			}
 		});
+		searchButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {	
+				resulttxt.setText("");
+				boolean isFound = list.searchList(edttext.getText().toString());
+				if (isFound){
+					resulttxt.setText("Entry was found in the List");
+				}
+				else{
+					resulttxt.setText("Entry was NOT found in the List");					
+				}
+			}
+		});
+		
 		
 	}
 
@@ -52,13 +67,13 @@ public class MainActivity extends Activity implements DoAction{
 
 	@Override
 	public void doAction(Object data, boolean isLastNode) {
-		final TextView txtview2 = (TextView)findViewById(R.id.textView2);
-		txtview2.setText(txtview2.getText().toString() + data.toString() + " ");
+		final TextView resulttxt = (TextView)findViewById(R.id.textView2);
+		resulttxt.setText(resulttxt.getText().toString() + data.toString() + " ");
 		if (isLastNode){
-			txtview2.setText(txtview2.getText().toString() + "/ ");
+			resulttxt.setText(resulttxt.getText().toString() + "\\");
 		}
 		else{
-			txtview2.setText(txtview2.getText().toString() + " -> ");
+			resulttxt.setText(resulttxt.getText().toString() + " -> ");
 		}
 	}
 
